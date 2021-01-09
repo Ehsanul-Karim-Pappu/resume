@@ -1,0 +1,265 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{lipsum}
+
+\hypersetup{breaklinks=true,%
+pagecolor=white,%
+colorlinks=true,%
+linkcolor=cyan,%
+urlcolor=MyDarkBlue}
+
+\definecolor{MyDarkBlue}{rgb}{0,0.0,0.45}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+\definecolor{contactgray}{gray}{0.3}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{contactgray}{\small#1}\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+  \begin{list}{}{
+      \setlength{\itemsep}{0pt}
+      \setlength{\labelsep}{0pt}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{\tabin}
+      \setlength{\rightmargin}{\tabin}
+      \setlength{\listparindent}{0pt}
+      \setlength{\parsep}{0pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\partopsep}{0pt}
+      \setlength{\topsep}{#1}
+    }
+  \item[]
+}{\end{list}}
+
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+
+\newenvironment{resume_section}[1]{
+  \filbreak
+  \vspace{2\secsep}
+  \textsc{\large#1}
+  \lineunder
+  \begin{tabbedsection}{\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2][]{
+  \textbf{#2} \hfill {\footnotesize #1} \hspace{2em}
+  \begin{tabbedsection}{0.5\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{subitems}{
+  \renewcommand{\labelitemi}{-}
+  \begin{itemize}
+      \setlength{\labelsep}{1em}
+}{\end{itemize}}
+
+\newenvironment{resume_employer}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Start Document     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        Header          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{resume_header}
+\name{Khandaker Ehsanul Karim}
+\program{Bachelor of Science -- Electrical and Electronic Engineering}
+\contact{\href{https://ehsanulkarim.me}{https://ehsanulkarim.me} \hspace{2cm} \href{mailto:ehsan.pappu.99@gmail.com} {ehsan.pappu.99@gmail.com} \hspace{2cm} \href{tel:+8801689408269}{+8801689408269}}
+\end{resume_header}%header%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Education        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{resume_section}{Education}
+  \begin{resume_subsection}[Chittagong, (2015--Present)]{Chittagong University of Engineering and Technology}
+    \begin{subitems}
+      Electrical and Electronic Engineering \hspace{5px}CGPA: $2.88/4.00$ (Final year)
+    \end{subitems}
+  \end{resume_subsection}
+  
+  
+  \begin{resume_subsection}[Savar, (2001--2015)]{Savar Cantonment Public School and College}
+    \begin{subitems}
+      JSC \hspace{50px} GPA: $5.00/5.00$\hfill {\footnotesize (2010)} \hspace{2em}
+      \begin{tabbedsection}{0.5\secsep}
+      \end{tabbedsection}
+      SSC in Science \hspace{3px} GPA: $5.00/5.00$\hfill {\footnotesize (2013)} \hspace{2em}
+      \begin{tabbedsection}{0.5\secsep}
+      \end{tabbedsection}
+      HSC in Science \hspace{1px} GPA: $5.00/5.00$\hfill {\footnotesize (2015)} \hspace{2em}
+      \begin{tabbedsection}{0.5\secsep}
+      \end{tabbedsection}
+     \end{subitems}
+  \end{resume_subsection}
+\end{resume_section} %Education%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Technical Skills    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{resume_section}{Technical Skills}
+  \begin{nospacetabbing}
+  C, C++, Python, JavaScript\\*
+  Basic knowledge on HTML5, CSS, MATLAB, Arduino, \LaTeX\\*
+  Also familiar with Object Oriented Programming, SQL, git, github, Linux CLI\\*
+  \end{nospacetabbing}
+\end{resume_section}%Technical Skills%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Experience       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{resume_section}{Experience}
+  \begin{resume_employer}{Andromeda Space and Robotics Research Organization(ASRRO)}{President}{CUET}{October 2019 - December 2020}
+    \item Organizing Itra-University and Inter-University based technology programs.
+    \item Organizing various seminars and workshops.
+    \item Showcasing our projects in schools, colleges to grow the interest in robotics.
+  \end{resume_employer}
+  
+  \begin{resume_employer}{National Robotics Competition TechnoCraze-2019}{Organizer}{CUET}{October 2019}
+    I was one of the organizers of National Robotics Competition TechnoCraze-2019 held in CUET. There were 3 events in the competition. The events are - Robo-Soccer Competition, Project Presentation, Idea Competition.
+  \end{resume_employer}
+\end{resume_section}%Experience%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Personal Projects    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{resume_section}{Personal Projects}
+  \begin{resume_subsection}[(August 2020)]{\href{https://ehsanulkarim.me/dx_ball_clone}{DX-Ball Clone}.}
+    \begin{subitems}
+       I have created a clone of a popular game DX-Ball using JavaScript while learning about JavaScript programming language. Here I have used p5js library to draw animation on HTML canvas element.
+    \end{subitems}
+  \end{resume_subsection}
+
+
+  \begin{resume_subsection}[(September 2020)]{\href{https://ehsanulkarim.me/sorting_algo_visualization}{Sorting Algorithm Visualization}}
+    \begin{subitems}
+      It always helps a lot to understand something, when we observe it with our eyes. So I have tried to visualize some common sorting algorithms. In this project I have used JavaScript with \href{https://p5js.org/}{p5js} library.
+     \end{subitems}
+  \end{resume_subsection}
+  
+  \begin{resume_subsection}[(January 2021)]{\href{https://ehsanulkarim.me/gif_search_engine/}{GIF Search Engine}}
+    \begin{subitems}
+      This project shows GIF result, as requested by user, by using the web API of two popular GIF website, \href{https://giphy.com/}{GIPHY} and \href{https://tenor.com/}{Tenor}.
+    \end{subitems}
+  \end{resume_subsection}
+
+  \begin{resume_subsection}[(May 2017)]{Industrial Automation}
+    \begin{subitems}
+      This is an industrial automation project. In this project, two DC motor driven conveyor belts had been used. A robotic hand had been used to move an object from one conveyor belt to another. An IR sensor had been used to sense any object passing the robotic hand. When IR sensor, senses an object, then the conveyor belt stops to roll and robotic arm pick the object and move to the other conveyor belt.
+    \end{subitems}
+  \end{resume_subsection}
+\end{resume_section}%Personal Projects%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      Achievements      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{resume_section}{Achievements}
+  \begin{resume_subsection}[(May 2017)]{RMA Footbot 2017}
+    \begin{subitems}
+      Our team won the 2nd place in this national competition held in Chittagong University of Engineering and Technology and I was the team leader. The competition was about a football game, where two remote/blue-tooth controlled motor driven robots would try to score a goal at the opponent's goal post.We were awarded 15,000 BDT for being Runners Up.
+    \end{subitems}
+  \end{resume_subsection}
+  
+  \begin{resume_subsection}[(August 2017)]{NSU Bit Arena 2017}
+    \begin{subitems}
+      Our team won the 1st place in this national competition held in North South University. This competition was same as the previous competition. We were awarded 20,000 BDT for being Champion.
+    \end{subitems}
+  \end{resume_subsection}
+\end{resume_section}%Achievements%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Journey in Computer Programming  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% \begin{resume_section}{Journey in Computer Programming}
+  
+% \end{resume_section}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            Reference              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{resume_section}{Reference}
+  \vspace{5px}
+  \begin{tabularx}{\textwidth}{XX}
+%   \begin{tabularx}{\textwidth}{@{}l|Y@{}}
+    \textbf{Dr. Muhammad Ahsan Ullah} & \textbf{Md. Saddam Hossain Razo} \\ 
+    Professor & Lecturer, CUET \\
+    Head of Electrical and Electronic Engineering, CUET & \href{mailto:saddam.hossain.raju.024@gmail.com}{saddam.hossain.raju.024@gmail.com} \\
+    Moderator of ASRRO & \href{tel:+8801737520527}{+8801737520527} \\
+    \href{mailto:ahsan@cuet.ac.bd}{ahsan@cuet.ac.bd} & \\ \href{tel:+8801734311590}{+8801734311590}  & 
+  
+  \end{tabularx}
+\end{resume_section}
+
+
+
+\end{document}
